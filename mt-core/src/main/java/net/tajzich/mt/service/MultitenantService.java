@@ -6,11 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: vtajzich
- * Date: 8/21/13
- */
 @Service
 public class MultitenantService {
 

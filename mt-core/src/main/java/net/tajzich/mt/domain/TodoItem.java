@@ -4,6 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
 public class TodoItem {
 
     @Id
@@ -11,7 +12,6 @@ public class TodoItem {
     @Column(name = "id")
     Long id;
 
-    @Version
     @Column(name = "version")
     Integer version;
 

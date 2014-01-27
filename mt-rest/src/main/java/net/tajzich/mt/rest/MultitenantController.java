@@ -9,11 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * Created with IntelliJ IDEA.
- * User: vtajzich
- * Date: 8/21/13
- */
 @Controller
 @RequestMapping("rest")
 public class MultitenantController {
@@ -39,7 +34,7 @@ public class MultitenantController {
         return getUserInfo(id).getTodoItems();
     }
 
-    @RequestMapping(value = "/user/{id}/todo", method = RequestMethod.POST)
+    @RequestMapping(value = "/user/{id}/todo", method = RequestMethod.POST, consumes = {"application/xml", "application/json"},headers="Accept=application/json")
     @ResponseBody
     public List<TodoItem> addTransaction(@PathVariable Long id, @RequestBody TodoItem todoItem) {
 

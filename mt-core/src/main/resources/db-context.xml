@@ -40,14 +40,14 @@
 
     <bean id="dataSource1" parent="abstractDataSource">
         <property name="url" value="jdbc:mysql://localhost/mt1"/>
-        <property name="username" value="mt1"/>
-        <property name="password" value="mt1"/>
+        <property name="username" value="root"/>
+        <property name="password" value="admin"/>
     </bean>
 
     <bean id="dataSource2" parent="abstractDataSource">
         <property name="url" value="jdbc:mysql://localhost/mt2"/>
-        <property name="username" value="mt2"/>
-        <property name="password" value="mt2"/>
+        <property name="username" value="root"/>
+        <property name="password" value="admin"/>
     </bean>
 
     <bean class="org.apache.commons.dbcp.BasicDataSource" abstract="true" destroy-method="close"
@@ -62,4 +62,15 @@
         <property name="validationQuery" value="SELECT 1"/>
     </bean>
 
+
+<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+    <property name="messageConverters">
+        <util:list id="beanList">
+            <ref bean="stringHttpMessageConverter"/>
+        </util:list>
+    </property>
+</bean>
+
+<bean id="stringHttpMessageConverter"
+        class="org.springframework.http.converter.StringHttpMessageConverter"/>
 </beans>
