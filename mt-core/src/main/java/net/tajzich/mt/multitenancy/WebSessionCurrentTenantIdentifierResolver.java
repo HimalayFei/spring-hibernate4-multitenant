@@ -19,7 +19,8 @@ public class WebSessionCurrentTenantIdentifierResolver implements CurrentTenantI
     @Override
     public String resolveCurrentTenantIdentifier() {
 
-        String tenantId = request.getHeader("X-TenantId");
+//        String tenantId = request.getHeader("X-TenantId");
+        String tenantId = "tenant1";
         
         LOG.info(MessageFormat.format("Found TenantId=\"{0}\"", tenantId));
 
