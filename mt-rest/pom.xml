@@ -10,8 +10,10 @@
     <packaging>war</packaging>
     <name>mt-rest Maven Webapp</name>
     <url>http://maven.apache.org</url>
-
+    
     <dependencies>
+
+
 
         <dependency>
             <groupId>${project.groupId}</groupId>

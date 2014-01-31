@@ -3,7 +3,9 @@ package net.tajzich.mt.rest;
 import net.tajzich.mt.domain.TodoItem;
 import net.tajzich.mt.domain.User;
 import net.tajzich.mt.service.MultitenantService;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,7 +36,8 @@ public class MultitenantController {
     @RequestMapping(value = "/user/{id}/todo", method = RequestMethod.GET)
     @ResponseBody
     public List<TodoItem> getTransactions(@PathVariable Long id) {
-        return getUserInfo(id).getTodoItems();
+    	HttpHeaders headers = addAccessControllAllowOrigin();
+    	return getUserInfo(id).getTodoItems();
     }
 
     @RequestMapping(value = "/user/{id}/todo", method = RequestMethod.POST, consumes = {"application/xml", "application/json"},headers="Accept=application/json")
@@ -61,4 +64,11 @@ public class MultitenantController {
 
         return getUserInfo(id);
     }
+    
+	private HttpHeaders addAccessControllAllowOrigin() {
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Access-Control-Allow-Origin", "*");
+        return headers;
+    }
+
 }

@@ -17,7 +17,8 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <roo.version>1.2.4.RELEASE</roo.version>
         <slf4j.version>1.7.5</slf4j.version>
-        <spring.version>3.2.3.RELEASE</spring.version>
+        <spring.version>4.0.0.RELEASE</spring.version>
+        <org.springframework.security.version>3.2.0.RELEASE</org.springframework.security.version>
         <jackson.mapper.version>1.9.11</jackson.mapper.version>
     </properties>
     <repositories>
@@ -55,6 +56,37 @@
         </pluginRepository>
     </pluginRepositories>
     <dependencies>
+    
+    	<!-- Spring Security -->
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<exclusions>
+				<exclusion>
+		          <groupId>org.springframework</groupId>
+		          <artifactId>spring-expression</artifactId>
+				</exclusion>
+			</exclusions> 
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springframework.security.version}</version>
+			<exclusions>
+				<exclusion>
+		          <groupId>org.springframework</groupId>
+		          <artifactId>spring-expression</artifactId>
+				</exclusion>
+			</exclusions> 
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springframework.security.version}</version>
+		</dependency>
+    
 
         <!-- General dependencies for standard applications -->
         <dependency>
